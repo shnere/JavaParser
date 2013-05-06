@@ -21,9 +21,12 @@ public class Logical extends Expr {
       int f = newlabel(); int a = newlabel();
       Temp temp = new Temp(type);
       this.jumping(0,f);
-      emit(temp.toString() + " = true");
-      emit("goto " + a);
-      emitlabel(f); emit(temp.toString() + " = false");
+	  emit("( = , true , , " + temp.toString() + " )");
+      //emit(temp.toString() + " = true");
+      emit("( , , , goto " + a + " )");
+      emitlabel(f); 
+	  emit("( = , false , , " + temp.toString() + " )");
+	  //emit(temp.toString() + " = false");
       emitlabel(a);
       return temp;
    }
