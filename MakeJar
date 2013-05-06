@@ -1,0 +1,1 @@
+jar cvfm Main.jar manifest.txt inter/*.class lexer/*.class main/*.class parser/*.class symbols/*.class
