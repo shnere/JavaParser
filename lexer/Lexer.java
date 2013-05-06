@@ -3,11 +3,14 @@ import java.io.*; import java.util.*; import symbols.*;
 public class Lexer {
    public static int line = 1;
    char peek = ' ';
+   File file;
+   FileInputStream fis;
    Hashtable words = new Hashtable();
    void reserve(Word w) { words.put(w.lexeme, w); }
 
-   public Lexer() throws IOException{
-
+   public Lexer(String filename) throws IOException{
+      file = new File(filename);
+      fis = new FileInputStream(file);
       reserve( new Word("if",    Tag.IF)    );
       reserve( new Word("else",  Tag.ELSE)  );
       reserve( new Word("while", Tag.WHILE) );
@@ -31,7 +34,7 @@ public class Lexer {
 
    }
 
-   void readch() throws IOException { peek = (char)System.in.read(); }
+   void readch() throws IOException { peek = (char) fis.read(); }
    boolean readch(char c) throws IOException {
       readch();
       if( peek != c ) return false;
