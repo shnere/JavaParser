@@ -17,7 +17,7 @@ public class Arith extends Op {
 
    public String toString() {
 	//System.out.println("Imprimo toString de arith");
-	return expr1.toString() + ", " + expr2.toString();
+	return expr1.toString() + " , " + expr2.toString() + " ";
 	//return expr1.toString()+" "+op.toString()+" "+expr2.toString();
    }
 }

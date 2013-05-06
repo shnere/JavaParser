@@ -20,14 +20,12 @@ public class Set extends Stmt {
 	//System.out.println("Imprimo toString de set id:"+id.toString());
 	//System.out.println("Expr gen toString:"+expr.gen().toString());
 	
-	
-	//System.out.println("ANTES DE SPLIT");
-	// Split expr.gen(), si contiene un simbolo aritmetico entonces imprimes sin igual
+	// Split expr, si contiene un simbolo aritmetico entonces imprimes sin igual
 	String[] parts = expr.toString().split(" ");
 	boolean is_arith = false;
 	
 	if(parts.length > 1){
-		if(expr.op.toString().equals("+") || expr.op.toString().equals("-")){
+		if(expr.op.toString().equals("+") || expr.op.toString().equals("-") || expr.op.toString().equals("*") || expr.op.toString().equals("/")){
 			//System.out.println("ES ARITH!");
 			is_arith = true;
 		}

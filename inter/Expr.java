@@ -18,9 +18,15 @@ public class Expr extends Node {
          emit("if " + test + " goto " + t);
          emit("goto " + f);
       }
-      else if( t != 0 ) emit("if " + test + " goto " + t);
-      else if( f != 0 ) emit("iffalse " + test + " goto " + f);
-      else ; // nothing since both t and f fall through
+      else if( t != 0 ){ emit("if " + test + " goto " + t);}
+      else if( f != 0 ){
+		// Nuevo quad para test
+		Temp temp = new Temp(type);
+		String vals[] = test.split(" ");
+		emit("( " + vals[1] + " , "+ vals[0] + " , " + vals[2] + " , " + temp.toString() + " )");
+		
+		emit("( iffalse, " + temp.toString() + " , , goto " + f + " )");
+	  }else ; // nothing since both t and f fall through
    }
    public String toString() { return op.toString(); }
 }
