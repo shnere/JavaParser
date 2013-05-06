@@ -18,7 +18,19 @@ public class Set extends Stmt {
 
    public void gen(int b, int a) {
 	//System.out.println("Imprimo toString de set id:"+id.toString());
-	if(id.toString().equals("d")){
+	//System.out.println("Expr gen toString:"+expr.gen().toString());
+	
+	// Split expr.gen(), si contiene un simbolo aritmetico entonces imprimes sin igual
+	String[] parts = expr.gen().toString().split(" ");
+	boolean is_arith = false;
+	
+	if(parts.length > 1){
+		if(parts[1].equals("+") || parts[1].equals("-")){
+			is_arith = true;
+		}
+	}
+	
+	if(is_arith){
 		emit("( " + expr.op + " , " + expr.gen().toString() + "," + id.toString() + " )");
 	}else{
 		emit("( = , " + expr.gen().toString() + " , , " + id.toString() + " )");
