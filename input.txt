@@ -1,10 +1,11 @@
-{
+int main(){
 	int a;
 	int b;
 	int c;
-	int d;
 	a = 10;
 	b = 20;
-	c = 30;
-	d = 2 + 2 * 3;
+	c = a + b;
+	if(c == 30){
+		c = c + 1;
+	}
 }

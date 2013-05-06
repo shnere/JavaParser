@@ -6,7 +6,7 @@ public class Lexer {
    Hashtable words = new Hashtable();
    void reserve(Word w) { words.put(w.lexeme, w); }
 
-   public Lexer() {
+   public Lexer() throws IOException{
 
       reserve( new Word("if",    Tag.IF)    );
       reserve( new Word("else",  Tag.ELSE)  );
@@ -16,8 +16,22 @@ public class Lexer {
 
       reserve( Word.True );  reserve( Word.False );
 
-      reserve( Type.Int  );  reserve( Type.Char  );
+      reserve( Type.Int  );  // reserve( Type.Char  );
       reserve( Type.Bool );  reserve( Type.Float );
+
+
+		this.readch(); //i
+		this.readch(); //n
+		this.readch(); //t
+		this.readch(); // 
+		this.readch(); //m
+		this.readch(); //a
+		this.readch(); //i
+		this.readch(); //n
+		this.readch(); //(
+		this.readch(); //)
+		this.readch(); // :)
+
    }
 
    void readch() throws IOException { peek = (char)System.in.read(); }

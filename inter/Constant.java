@@ -11,7 +11,7 @@ public class Constant extends Expr {
       False = new Constant(Word.False, Type.Bool);
 
    public void jumping(int t, int f) {
-      if ( this == True && t != 0 ) emit("goto L" + t);
-      else if ( this == False && f != 0) emit("goto L" + f);
+      if ( this == True && t != 0 ) emit("goto " + t);
+      else if ( this == False && f != 0) emit("goto " + f);
    }
 }
