@@ -13,7 +13,7 @@ public class Node {
 
    public int newlabel() { return ++labels; }
 
-   public void emitlabel(int i) { System.out.print("L" + i + ":"); }
+   public void emitlabel(int i) { System.out.print("" + i + ":"); }
 
    public void emit(String s) { System.out.println("\t" + s); }
 }
